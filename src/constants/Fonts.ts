@@ -1,4 +1,4 @@
-export const Fonts ={
+const Fonts ={
     SourceSans3 :{
         ExtraLight: "SourceSans3-ExtraLight",
         ExtraLightItalic: "SourceSans3-ExtraLightItalic",
@@ -32,3 +32,5 @@ export const Fonts ={
         BlackItalic: "Lato-BlackItalic"
     }
 }
+
+export default Fonts;

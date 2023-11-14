@@ -1,7 +1,7 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 import { DrawerHeaderProps } from '@react-navigation/drawer'
-import { Fonts } from '../../constants/Fonts'
+import Fonts from '../../constants/Fonts'
 import { moderateScale } from '../../constants/Metrics'
 
 export interface DefaultHeaderProps extends DrawerHeaderProps{
