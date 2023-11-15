@@ -16,16 +16,12 @@ const Fonts ={
         BlackItalic: "SourceSans3-BlackItalic"
     },
     Lato :{
-        ExtraLight: "Lato-ExtraLight",
-        ExtraLightItalic: "Lato-ExtraLightItalic",
+        Thin: "Lato-Thin",
+        ThinItalic: "Lato-ThinItalic",
         Light: "Lato-Light",
         LightItalic: "Lato-LightItalic",
         Regular: "Lato-Regular",
         RegularItalic: "Lato-Italic",
-        Medium: "Lato-Medium",
-        MediumItalic: "Lato-MediumItalic",
-        SemiBold: "Lato-SemiBold",
-        SemiBoldItalic: "Lato-SemiBoldItalic",
         Bold: "Lato-Bold",
         BoldItalic: "Lato-BoldItalic",
         Black:"Lato-Black",

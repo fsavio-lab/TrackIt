@@ -1,35 +1,53 @@
-import {createDrawerNavigator} from '@react-navigation/drawer';
-import NotesPage from '../screens/Notes/NotesPage';
-import ChecklistPage from '../screens/CheckList/ChecklistPage';
-import SettingsPage from '../screens/Settings/SettingsPage';
 import CreateNotePage from '../screens/Notes/CreateNotePage';
 import {NavigationContainer} from '@react-navigation/native';
-import DefaultHeader from '../components/Header/DefaultHeader';
+import {createStackNavigator} from '@react-navigation/stack';
+import HomePageNavigator from './HomePageNavigator';
+import PageTitleHeader from '../components/Header/PageTitleHeader';
+import {IconButton} from 'react-native-paper';
+import Colors from '../constants/Colors';
+import { moderateScale } from '../constants/Metrics';
 
-type AppDrawerParamList = {
-  Notes: undefined;
-  CheckList: undefined;
-  Settings: undefined;
-  CreateNotes: undefined;
-};
-
-const Drawer = createDrawerNavigator();
+const Stack = createStackNavigator();
 
 const AppNavigator = () => {
   return (
     <NavigationContainer>
-      <Drawer.Navigator
-        initialRouteName="Notes"
+      <Stack.Navigator
+        initialRouteName="HomePageDrawer"
         screenOptions={{
-          drawerType: 'front',
-          drawerStyle: {width: '50%'},
-          header: props => <DefaultHeader {...props} />,
+          headerShown: false,
         }}>
-        <Drawer.Screen name="Notes" component={NotesPage} />
-        <Drawer.Screen name="CheckList" component={ChecklistPage} />
-        <Drawer.Screen name="Settings" component={SettingsPage} />
-        <Drawer.Screen name="CreateNotes" component={CreateNotePage} />
-      </Drawer.Navigator>
+        <Stack.Screen name="HomePageDrawer" component={HomePageNavigator} />
+        <Stack.Screen
+          name="CreateNotes"
+          component={CreateNotePage}
+          options={{
+            headerShown: true,
+            header: props => (
+              <PageTitleHeader
+                title={''}
+                right={
+                  <>
+                    <IconButton
+                      icon="share-variant"
+                      iconColor={Colors.White}
+                      size={moderateScale(32)}
+                      onPress={() => props.navigation.goBack()}
+                    />
+                    <IconButton
+                      icon="menu"
+                      iconColor={Colors.White}
+                      size={moderateScale(32)}
+                      onPress={() => props.navigation.goBack()}
+                    />
+                  </>
+                }
+                {...props}
+              />
+            ),
+          }}
+        />
+      </Stack.Navigator>
     </NavigationContainer>
   );
 };
